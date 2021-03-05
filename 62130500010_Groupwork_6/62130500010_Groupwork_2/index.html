@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Vue Js - HelloWorld App</title>
+
+    <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+    <!-- Using via Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <!-- https://tailwindcss.com/docs/installation -->
+    <!-- Using Tailwind via CDN -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+    <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+    <!-- Vue CDN -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+</head>
+
+<body class="bg-indigo-50">
+    <div id="app">
+        <h1 class="text-4xl  pt-4 pb-4 text-blue-100 text-center mt-16 bg-gradient-to-r from-green-400 to-blue-500">
+            Registration Form</h1>
+
+        <p v-if="errors" class="text-red-500 font-serif text-xl ml-96 py-1.5">
+            <b>Please correct the following error(s):</b>
+        <ul>
+            <li v-for="error in errors" class="text-red-500 font-serif ml-96 py-1.5">{{ error }}</li>
+        </ul>
+        <form @submit="checkForm" action="">
+            <div class="text-center mt-16 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+                <div class="profile"> <img v-bind:src="image" width="300" class=" float-left "> </div>
+
+                <div class="flex flex-col mt-5">
+                    <p class="text-purple-500">Firstname <input type="text" id="firstname" v-model="form.firstname"
+                            name="firstname" class="bg-gray-100 rounded px-4 py-2 mb-4"> </p>
+                </div>
+
+                <div class="flex flex-col">
+                    <p class="text-purple-500">Lastname <input type="text" id="lastname" v-model="form.lastname"
+                            name="lastname" class="bg-gray-100 rounded px-4 py-2 mb-4"> </p>
+                </div>
+
+                <div class="flex flex-col">
+                    <p class="text-purple-500">Age <input type="text" id="age" v-model="form.age" name="age"
+                            class="bg-gray-100 rounded px-4 py-2 mb-4"> </p>
+                </div>
+
+                <div class="flex flex-col">
+                    <p class="text-purple-500">Email <input type="text" id="email" v-model="form.email" name="email"
+                            class="bg-gray-100 rounded px-4 py-2 mb-4"> </p>
+                </div>
+
+                <div class="flex flex-col">
+                    <p class="text-purple-500">Telno <input type="text" id="telno" v-model="form.telno" name="telno"
+                            class="bg-gray-100 rounded px-4 py-2 mb-4"> </p>
+                </div>
+
+                <button type="submit"
+                    class="px-8 py-2 text-white bg-pink-500 rounded-lg hover:bg-pink-600 focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">Submit</button>
+            </div>
+        </form>   
+
+            <div id="old-profile">
+                <div id="profile-name" class="text-center pt-16 pl-32 space-y-6 text-yellow-300">
+                    <p class="text-4xl font-bold ">My Profile</p>
+                    <p>Full Name : {{firstname}} {{lastname}}</p>
+                    <p>Email : {{email}}</p>
+                    <p>Age : {{age}}</p>
+                    <p>Telno : {{telno}}</p>
+                </div>
+            </div>
+    </div>
+    
+    </p>
+    <script src="main.js"></script>
+</body>
+
+</html>
